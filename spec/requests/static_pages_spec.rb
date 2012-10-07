@@ -4,12 +4,17 @@ describe "StaticPages" do
   describe "Home Page" do
     it "should have content 'Weiweibo'" do
         visit '/static_pages/home'
-        page.should have_content('Weiweibo')
+        page.should have_selector('h1', :text => 'Weiweibo')
     end
 
-    it "should have the title 'Home'" do
+    it "should have the base title" do
         visit '/static_pages/home'
-        page.should have_selector('title', :text => "Ruby on Rails Tutorial App | Home")
+        page.should have_selector('title', :text => "Ruby on Rails Tutorial App")
+    end
+
+    it "should have a custom page title" do
+        visit '/static_pages/home'
+        page.should_not have_selector('title', :text => '| Home')
     end
   end
 
