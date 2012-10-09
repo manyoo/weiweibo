@@ -9,8 +9,8 @@ describe "Authentication Pages" do
         describe "sign in with invalid information" do
             before { click_button 'Sign in' }
 
-            it { should have_selector('title', text: 'Sign in ') }
-            it { should have_selector('div.alert.alert_error', text: 'Invalid') }
+            it { should have_selector('title', text: 'Sign in') }
+            it { should have_selector('div.alert.alert-error', text: 'Invalid') }
 
             describe "after visiting another page" do
                 before { click_link 'Home' }
