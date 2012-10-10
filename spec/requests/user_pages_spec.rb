@@ -48,7 +48,10 @@ describe "UserPages" do
 
   describe 'edit' do
     let(:user) { FactoryGirl.create(:user) }
-    before { visit edit_user_path(user) }
+    before { 
+      sign_in user
+      visit edit_user_path(user)
+    }
 
     describe "page" do
       it { should have_selector('h1', text: 'Update your profile') }
