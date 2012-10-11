@@ -50,7 +50,7 @@ describe "UserPages" do
     describe "micrposts" do
       it { should have_content(m1.content) }
       it { should have_content(m2.content) }
-      it { should have_content(user.micrposts.count) }
+      it { should have_content(user.microposts.count) }
     end
   end
 
@@ -131,7 +131,7 @@ describe "UserPages" do
         it "should be able to delete another user" do
           expect { click_link('delete') }.to change(User, :count).by(-1)
         end
-        it { should have_link('delete', href: user_path(admin)) }
+        it { should_not have_link('delete', href: user_path(admin)) }
       end
     end
   end
